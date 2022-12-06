@@ -7,6 +7,7 @@ import {
 	IContactNumberSchema,
 	IDateInputSchema,
 	IEmailSchema,
+	IImageUploadSchema,
 	IMultiSelectSchema,
 	INumberSchema,
 	IRadioButtonGroupSchema,
@@ -68,7 +69,8 @@ export type TFrontendEngineFieldSchema<V = undefined> =
 	| ITimePickerSchema<V>
 	| IChipsSchema<V>
 	| IAlertSchema
-	| ITextSchema;
+	| ITextSchema
+	| IImageUploadSchema<V>;
 
 export type TFrontendEngineValues<T = any> = Record<keyof T, T[keyof T]>;
 export type TRevalidationMode = Exclude<keyof ValidationMode, "onTouched" | "all">;
@@ -171,6 +173,7 @@ export enum EFieldType {
 	"TEXT-BODY" = "Text",
 	"TEXT-BODYSMALL" = "Text",
 	"TEXT-XSMALL" = "Text",
+	"IMAGE-UPLOAD" = "ImageUpload",
 }
 
 // =============================================================================

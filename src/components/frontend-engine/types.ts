@@ -77,6 +77,19 @@ export type TRevalidationMode = Exclude<keyof ValidationMode, "onTouched" | "all
 export type TValidationMode = keyof ValidationMode;
 
 export interface IFrontendEngineRef extends HTMLFormElement {
+	addFieldEventListener: (
+		type: string,
+		id: string,
+		listener: (this: Element, ev: Event) => any,
+		options?: boolean | AddEventListenerOptions
+	) => void;
+	removeFieldEventListener: (
+		type: string,
+		id: string,
+		listener: (this: Element, ev: Event) => any,
+		options?: boolean | EventListenerOptions
+	) => void;
+	dispatchFieldEvent: (event: Event) => boolean;
 	/** gets form values */
 	getValues: () => TFrontendEngineValues;
 	/** check if form is valid */
